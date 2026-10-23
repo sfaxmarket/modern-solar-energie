@@ -1,0 +1,429 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Modern Solar Énergie : installation solaire, panneaux photovoltaïques et stockage d'énergie en Tunisie.">
+  <title>Modern Solar Énergie | Solutions solaires en Tunisie</title>
+  <style>
+    :root {
+      --navy: #172d3d;
+      --gold: #b58b61;
+      --cream: #fbf9f4;
+      --text: #263746;
+      --muted: #68727a;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      background: #fffefa;
+      padding: 14px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 12px #142b3c12;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--navy);
+    }
+
+    .brand-icon { font-size: 38px; }
+
+    .brand h1 { font-size: 25px; line-height: 1.1; }
+
+    .brand span {
+      display: block;
+      color: var(--gold);
+      font-size: 18px;
+      font-weight: normal;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    nav a:hover { color: var(--gold); }
+
+    .phone { font-weight: bold; font-size: 14px; }
+
+    .btn {
+      display: inline-block;
+      background: var(--gold);
+      color: white;
+      padding: 12px 22px;
+      border-radius: 28px;
+      border: 0;
+      font-weight: bold;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .btn:hover { background: #906a47; transform: translateY(-1px); }
+
+    .hero {
+      min-height: 430px;
+      display: flex;
+      align-items: center;
+      padding: 55px 7%;
+      color: white;
+      background:
+        linear-gradient(90deg, #102738d9 0%, #1027388c 48%, #10273810 100%),
+        url("https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2000&q=85")
+        center/cover no-repeat;
+    }
+
+    .hero-content { max-width: 610px; }
+
+    .eyebrow {
+      font-size: 14px;
+      letter-spacing: 1.5px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .hero h2 { font-size: clamp(32px, 5vw, 52px); line-height: 1.15; }
+
+    .hero h2 span { color: #e8c69c; }
+
+    .hero p { margin: 18px 0 24px; max-width: 470px; font-size: 17px; }
+
+    .features {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+      font-size: 13px;
+    }
+
+    .features span { border-left: 1px solid #ffffff80; padding-left: 12px; }
+
+    section { padding: 48px 6%; scroll-margin-top: 20px; }
+
+    .section-title { text-align: center; margin-bottom: 28px; }
+
+    .section-title h2 { color: var(--navy); font-size: 32px; }
+
+    .section-title p { color: var(--muted); margin-top: 5px; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 22px #2637460d;
+    }
+
+    .card img {
+      width: 100%;
+      height: 145px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-content { padding: 16px; }
+
+    .card h3 { font-size: 17px; color: var(--navy); }
+
+    .card p { color: var(--muted); font-size: 14px; margin: 7px 0; }
+
+    .more { color: #9b744d; font-size: 13px; font-weight: bold; }
+
+    .advantages { background: #f0ece4; }
+
+    .advantage-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      text-align: center;
+    }
+
+    .advantage { padding: 20px 12px; }
+
+    .advantage .icon { font-size: 32px; }
+
+    .advantage h3 { font-size: 17px; margin: 8px 0; }
+
+    .advantage p { color: var(--muted); font-size: 14px; }
+
+    .offer {
+      background:
+        linear-gradient(90deg, #f6ead8ed, #f6ead8df),
+        url("https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1600&q=80")
+        center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .offer h2 { font-size: 30px; color: var(--navy); }
+
+    .offer .price { font-size: 27px; font-weight: bold; color: #825e3e; }
+
+    .contact-wrap {
+      max-width: 760px;
+      margin: auto;
+      background: white;
+      padding: 28px;
+      border-radius: 14px;
+      box-shadow: 0 5px 24px #26374610;
+    }
+
+    .contact-wrap > p { color: var(--muted); margin-bottom: 20px; }
+
+    form { display: grid; gap: 14px; }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid #d6dce0;
+      border-radius: 7px;
+      font: inherit;
+      background: white;
+    }
+
+    textarea { min-height: 110px; resize: vertical; }
+
+    form .btn { justify-self: start; font-size: 15px; }
+
+    .form-note { font-size: 12px; color: var(--muted); }
+
+    footer {
+      background: var(--navy);
+      color: white;
+      padding: 30px 6%;
+      text-align: center;
+    }
+
+    footer p { color: #d1dce3; font-size: 14px; margin-top: 7px; }
+
+    @media (max-width: 900px) {
+      .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .advantage-grid { grid-template-columns: repeat(2, 1fr); }
+      header { justify-content: center; text-align: center; }
+      nav { justify-content: center; }
+    }
+
+    @media (max-width: 520px) {
+      header { padding: 14px 4%; gap: 14px; }
+      .brand h1 { font-size: 22px; }
+      nav { gap: 12px; font-size: 13px; }
+      .hero { padding: 45px 6%; min-height: 470px; }
+      .hero p { font-size: 15px; }
+      .features { gap: 12px; }
+      section { padding: 38px 5%; }
+      .section-title h2 { font-size: 26px; }
+      .cards { gap: 12px; }
+      .card img { height: 110px; }
+      .card-content { padding: 11px; }
+      .card h3 { font-size: 15px; }
+      .card p { font-size: 13px; }
+      .offer h2 { font-size: 25px; }
+      .contact-wrap { padding: 20px 15px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="brand" href="#accueil">
+    <div class="brand-icon">☀️</div>
+    <div>
+      <h1>Modern Solar</h1>
+      <span>Énergie</span>
+    </div>
+  </a>
+
+  <nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#apropos">À propos</a>
+    <a href="#solutions">Nos solutions</a>
+    <a href="#avantages">Nos avantages</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <a class="phone" href="tel:+21626621515">☎ +216 26 621 515</a>
+  <a class="btn" href="#contact">Demander un devis</a>
+</header>
+
+<main>
+  <section class="hero" id="accueil">
+    <div class="hero-content">
+      <div class="eyebrow">L’ÉNERGIE SOLAIRE, UN CHOIX INTELLIGENT</div>
+      <h2>Des solutions solaires <span>pour un avenir plus propre</span></h2>
+      <p>Modern Solar Énergie vous accompagne dans votre transition énergétique avec des solutions fiables, performantes et adaptées à vos besoins.</p>
+
+      <div class="features">
+        <span>♻️ Énergie propre<br>et renouvelable</span>
+        <span>ϟ Réduction de<br>votre facture d’électricité</span>
+        <span>⌂ Installation rapide<br>et professionnelle</span>
+      </div>
+
+      <a class="btn" href="#solutions">Découvrir nos solutions →</a>
+    </div>
+  </section>
+
+  <section id="solutions">
+    <div class="section-title">
+      <h2>Nos solutions solaires</h2>
+      <p>Des installations sur mesure pour les particuliers, les entreprises et les commerces.</p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=700&q=80" alt="Panneaux solaires sur une maison" loading="lazy">
+        <div class="card-content">
+          <h3>Résidentiel</h3>
+          <p>Produisez votre propre électricité et réduisez vos factures.</p>
+          <a class="more" href="#contact">En savoir plus →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=700&q=80" alt="Installation solaire commerciale" loading="lazy">
+        <div class="card-content">
+          <h3>Commercial & Industriel</h3>
+          <p>Optimisez votre consommation et améliorez votre rentabilité.</p>
+          <a class="more" href="#contact">En savoir plus →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=700&q=80" alt="Énergie solaire en pleine nature" loading="lazy">
+        <div class="card-content">
+          <h3>Systèmes autonomes</h3>
+          <p>Une solution idéale pour les zones non raccordées au réseau.</p>
+          <a class="more" href="#contact">En savoir plus →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1592833159155-c62df1b65634?auto=format&fit=crop&w=700&q=80" alt="Équipement énergétique" loading="lazy">
+        <div class="card-content">
+          <h3>Stockage d’énergie</h3>
+          <p>Profitez de l’énergie solaire en toute autonomie, même la nuit.</p>
+          <a class="more" href="#contact">En savoir plus →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="advantages" id="apropos">
+    <div class="section-title">
+      <h2>Pourquoi choisir Modern Solar Énergie ?</h2>
+      <p>Des solutions pensées pour votre confort et vos économies.</p>
+    </div>
+
+    <div class="advantage-grid" id="avantages">
+      <div class="advantage">
+        <div class="icon">☀️</div>
+        <h3>Énergie propre</h3>
+        <p>Une énergie renouvelable pour un avenir plus durable.</p>
+      </div>
+      <div class="advantage">
+        <div class="icon">🛡️</div>
+        <h3>Matériel de qualité</h3>
+        <p>Des équipements adaptés à votre installation.</p>
+      </div>
+      <div class="advantage">
+        <div class="icon">🎧</div>
+        <h3>Service après-vente</h3>
+        <p>Un accompagnement à chaque étape de votre projet.</p>
+      </div>
+      <div class="advantage">
+        <div class="icon">📍</div>
+        <h3>Partout en Tunisie</h3>
+        <p>Contactez-nous pour étudier votre projet.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="offer">
+    <div>
+      <h2>Le solaire, à votre portée !</h2>
+      <p>Découvrez la solution adaptée à votre budget.</p>
+    </div>
+    <div>
+      <div class="price">Devis personnalisé</div>
+      <p>Selon votre installation et vos besoins.</p>
+    </div>
+    <a class="btn" href="#contact">Faire une demande →</a>
+  </section>
+
+  <section id="contact">
+    <div class="section-title">
+      <h2>Demandez votre devis gratuit</h2>
+      <p>Parlez-nous de votre projet solaire en Tunisie.</p>
+    </div>
+
+    <div class="contact-wrap">
+      <p>Remplissez le formulaire et nous pourrons étudier votre demande.</p>
+
+      <form action="https://formspree.io/f/mbgdkabo" method="POST">
+        <input type="hidden" name="_subject" value="Nouvelle demande de devis - Modern Solar Énergie">
+
+        <input type="text" name="nom" placeholder="Nom et prénom" autocomplete="name" required>
+
+        <input type="tel" name="telephone" placeholder="Numéro de téléphone" autocomplete="tel" required>
+
+        <input type="text" name="ville" placeholder="Ville / Région" autocomplete="address-level2" required>
+
+        <select name="type_projet" required>
+          <option value="">Type de projet</option>
+          <option>Installation solaire résidentielle</option>
+          <option>Installation commerciale ou industrielle</option>
+          <option>Système solaire autonome</option>
+          <option>Stockage d’énergie</option>
+          <option>Autre demande</option>
+        </select>
+
+        <textarea name="message" placeholder="Décrivez votre projet (facultatif)"></textarea>
+
+        <button class="btn" type="submit">Envoyer ma demande →</button>
+        <p class="form-note">Vos informations servent à répondre à votre demande de devis.</p>
+      </form>
+
+      <p style="margin-top:22px">
+        Téléphone :
+        <a href="tel:+21626621515"><strong>+216 26 621 515</strong></a>
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <h2>Modern Solar Énergie</h2>
+  <p>Des solutions solaires pour un avenir plus propre.</p>
+  <p>© 2026 Modern Solar Énergie — Tunisie</p>
+</footer>
+
+</body>
+</html>
