@@ -1,429 +1,1510 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Modern Solar Énergie : installation solaire, panneaux photovoltaïques et stockage d'énergie en Tunisie.">
+  <meta name="theme-color" content="#f8f6f0">
+
   <title>Modern Solar Énergie | Solutions solaires en Tunisie</title>
+
+  <meta name="description" content="Modern Solar Énergie : installation photovoltaïque, solutions solaires pour particuliers et entreprises, stockage d'énergie et devis personnalisé en Tunisie.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --navy: #172d3d;
-      --gold: #b58b61;
-      --cream: #fbf9f4;
-      --text: #263746;
+      --navy: #142b3b;
+      --gold: #b58b5e;
+      --gold-light: #e5c69c;
+      --cream: #f8f6f0;
+      --white: #ffffff;
       --muted: #68727a;
+      --green: #173c35;
+      --shadow: 0 8px 28px rgba(20, 43, 59, 0.08);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: 'Inter', Arial, sans-serif;
+      color: var(--navy);
       background: var(--cream);
-      color: var(--text);
       line-height: 1.6;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .container {
+      width: min(1320px, 90%);
+      margin: auto;
+    }
+
+    /* HEADER */
 
     header {
-      background: #fffefa;
-      padding: 14px 6%;
+      background: rgba(250, 248, 243, 0.98);
+      border-bottom: 1px solid #e9e4da;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      min-height: 88px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 22px;
-      flex-wrap: wrap;
-      box-shadow: 0 2px 12px #142b3c12;
+      gap: 24px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 10px;
-      color: var(--navy);
+      gap: 12px;
+      flex-shrink: 0;
     }
 
-    .brand-icon { font-size: 38px; }
+    .brand-icon {
+      width: 72px;
+      height: 65px;
+      flex-shrink: 0;
+    }
 
-    .brand h1 { font-size: 25px; line-height: 1.1; }
+    .brand-name {
+      font-size: 27px;
+      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: -1px;
+      white-space: nowrap;
+    }
 
-    .brand span {
-      display: block;
+    .brand-subtitle {
       color: var(--gold);
-      font-size: 18px;
-      font-weight: normal;
+      font-size: 21px;
+      line-height: 1.2;
+      letter-spacing: 1px;
     }
 
-    nav {
+    .nav-links {
       display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      font-size: 14px;
+      align-items: center;
+      gap: 25px;
     }
 
-    nav a:hover { color: var(--gold); }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: color .2s;
+    }
 
-    .phone { font-weight: bold; font-size: 14px; }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--gold);
+    }
+
+    .nav-links a.active {
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 7px;
+    }
+
+    .header-contact {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-shrink: 0;
+    }
+
+    .phone {
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
 
     .btn {
-      display: inline-block;
-      background: var(--gold);
-      color: white;
-      padding: 12px 22px;
-      border-radius: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
       border: 0;
-      font-weight: bold;
+      border-radius: 30px;
+      padding: 13px 23px;
+      font-size: 14px;
+      font-weight: 600;
       cursor: pointer;
-      transition: .2s;
+      transition: transform .2s, background .2s;
     }
 
-    .btn:hover { background: #906a47; transform: translateY(-1px); }
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: white;
+    }
+
+    .btn-gold:hover {
+      background: #967047;
+    }
+
+    .btn-dark {
+      background: var(--green);
+      color: white;
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid #ded8ce;
+      background: white;
+      border-radius: 9px;
+      width: 44px;
+      height: 42px;
+      font-size: 23px;
+      color: var(--navy);
+      cursor: pointer;
+    }
+
+    /* HERO */
 
     .hero {
+      position: relative;
       min-height: 430px;
       display: flex;
       align-items: center;
-      padding: 55px 7%;
+      overflow: hidden;
       color: white;
       background:
-        linear-gradient(90deg, #102738d9 0%, #1027388c 48%, #10273810 100%),
-        url("https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2000&q=85")
-        center/cover no-repeat;
+        linear-gradient(90deg,
+          rgba(13, 34, 49, .86) 0%,
+          rgba(13, 34, 49, .68) 36%,
+          rgba(13, 34, 49, .08) 76%),
+        url("https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=85")
+        center 52% / cover no-repeat;
     }
 
-    .hero-content { max-width: 610px; }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding-top: 45px;
+      padding-bottom: 45px;
+      max-width: 680px;
+    }
 
     .eyebrow {
       font-size: 14px;
-      letter-spacing: 1.5px;
-      font-weight: bold;
-      margin-bottom: 12px;
+      font-weight: 600;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      margin-bottom: 13px;
     }
 
-    .hero h2 { font-size: clamp(32px, 5vw, 52px); line-height: 1.15; }
-
-    .hero h2 span { color: #e8c69c; }
-
-    .hero p { margin: 18px 0 24px; max-width: 470px; font-size: 17px; }
-
-    .features {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-bottom: 25px;
-      font-size: 13px;
+    .hero h1 {
+      font-size: clamp(34px, 4vw, 49px);
+      line-height: 1.13;
+      letter-spacing: -1.4px;
+      margin-bottom: 15px;
+      font-weight: 800;
     }
 
-    .features span { border-left: 1px solid #ffffff80; padding-left: 12px; }
-
-    section { padding: 48px 6%; scroll-margin-top: 20px; }
-
-    .section-title { text-align: center; margin-bottom: 28px; }
-
-    .section-title h2 { color: var(--navy); font-size: 32px; }
-
-    .section-title p { color: var(--muted); margin-top: 5px; }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 5px 22px #2637460d;
-    }
-
-    .card img {
-      width: 100%;
-      height: 145px;
-      object-fit: cover;
+    .hero h1 span {
+      color: var(--gold-light);
       display: block;
     }
 
-    .card-content { padding: 16px; }
-
-    .card h3 { font-size: 17px; color: var(--navy); }
-
-    .card p { color: var(--muted); font-size: 14px; margin: 7px 0; }
-
-    .more { color: #9b744d; font-size: 13px; font-weight: bold; }
-
-    .advantages { background: #f0ece4; }
-
-    .advantage-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      text-align: center;
+    .hero-description {
+      max-width: 470px;
+      color: #f0f1f1;
+      font-size: 16px;
+      line-height: 1.65;
+      margin-bottom: 25px;
     }
 
-    .advantage { padding: 20px 12px; }
-
-    .advantage .icon { font-size: 32px; }
-
-    .advantage h3 { font-size: 17px; margin: 8px 0; }
-
-    .advantage p { color: var(--muted); font-size: 14px; }
-
-    .offer {
-      background:
-        linear-gradient(90deg, #f6ead8ed, #f6ead8df),
-        url("https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1600&q=80")
-        center/cover;
+    .hero-features {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
+      gap: 17px;
+      margin-bottom: 25px;
       flex-wrap: wrap;
     }
 
-    .offer h2 { font-size: 30px; color: var(--navy); }
-
-    .offer .price { font-size: 27px; font-weight: bold; color: #825e3e; }
-
-    .contact-wrap {
-      max-width: 760px;
-      margin: auto;
-      background: white;
-      padding: 28px;
-      border-radius: 14px;
-      box-shadow: 0 5px 24px #26374610;
+    .hero-feature {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-right: 15px;
+      border-right: 1px solid rgba(255,255,255,.45);
+      font-size: 12px;
+      line-height: 1.45;
     }
 
-    .contact-wrap > p { color: var(--muted); margin-bottom: 20px; }
-
-    form { display: grid; gap: 14px; }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 13px 14px;
-      border: 1px solid #d6dce0;
-      border-radius: 7px;
-      font: inherit;
-      background: white;
+    .hero-feature:last-child {
+      border-right: 0;
     }
 
-    textarea { min-height: 110px; resize: vertical; }
+    .feature-icon {
+      font-size: 26px;
+      flex-shrink: 0;
+    }
 
-    form .btn { justify-self: start; font-size: 15px; }
+    .hero-badge {
+      position: absolute;
+      right: 4%;
+      bottom: 20px;
+      background: rgba(20, 58, 49, .95);
+      border: 1px solid rgba(255,255,255,.7);
+      border-radius: 50px;
+      padding: 15px 23px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      max-width: 285px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
 
-    .form-note { font-size: 12px; color: var(--muted); }
+    .hero-badge-icon {
+      font-size: 35px;
+    }
 
-    footer {
-      background: var(--navy);
+    /* SOLUTIONS */
+
+    .solutions {
+      padding: 13px 0 20px;
+      background: #fffefa;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .section-heading h2 {
+      font-size: 29px;
+      line-height: 1.3;
+      font-weight: 800;
+      letter-spacing: -.7px;
+      margin-bottom: 5px;
+    }
+
+    .section-heading p {
+      font-size: 14px;
+      color: #555f68;
+    }
+
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .solution-card {
+      background: #fff;
+      border-radius: 9px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .solution-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 35px rgba(20,43,59,.13);
+    }
+
+    .solution-image {
+      height: 125px;
+      position: relative;
+    }
+
+    .solution-image img {
+      height: 100%;
+    }
+
+    .solution-icon {
+      width: 43px;
+      height: 43px;
+      position: absolute;
+      left: 13px;
+      bottom: -16px;
+      border: 3px solid white;
+      background: var(--gold);
       color: white;
-      padding: 30px 6%;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 21px;
+    }
+
+    .solution-body {
+      padding: 20px 15px 15px;
+    }
+
+    .solution-body h3 {
+      font-size: 15px;
+      line-height: 1.35;
+      margin-bottom: 7px;
+    }
+
+    .solution-body p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .learn-more {
+      color: #9c7347;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* FINANCING */
+
+    .financing {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg,
+          rgba(250, 239, 220, .82),
+          rgba(250, 239, 220, .97) 44%,
+          rgba(250, 239, 220, .96)),
+        url("https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1800&q=85")
+        center / cover no-repeat;
+      padding: 24px 0;
+    }
+
+    .financing-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .9fr .95fr;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .financing-title {
+      text-align: center;
+      color: #172e40;
+    }
+
+    .financing-title strong {
+      display: block;
+      font-family: Georgia, serif;
+      font-size: clamp(29px, 3vw, 42px);
+      font-style: italic;
+      line-height: 1.2;
+      font-weight: 500;
+    }
+
+    .financing-title span {
+      display: block;
+      font-family: Georgia, serif;
+      font-size: 23px;
+      font-style: italic;
+    }
+
+    .financing-price {
+      background: rgba(230, 205, 170, .58);
+      padding: 18px;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .calendar-icon {
+      font-size: 38px;
+    }
+
+    .price-label {
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .price-amount {
+      font-size: 25px;
+      font-weight: 800;
+      white-space: nowrap;
+      line-height: 1.4;
+    }
+
+    .financing-action h3 {
+      font-size: 17px;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    .financing-action .btn {
+      padding: 11px 20px;
+      font-size: 13px;
+    }
+
+    /* ADVANTAGES */
+
+    .advantages {
+      padding: 27px 0;
+      background: #f8f6f0;
+    }
+
+    .advantages-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .advantage {
+      text-align: center;
+      padding: 12px;
+      border-right: 1px solid #e4ddd1;
+    }
+
+    .advantage:last-child {
+      border-right: 0;
+    }
+
+    .advantage-icon {
+      font-size: 26px;
+      margin-bottom: 5px;
+    }
+
+    .advantage h3 {
+      font-size: 12px;
+      margin-bottom: 3px;
+    }
+
+    .advantage p {
+      font-size: 11px;
+      color: #616c73;
+    }
+
+    /* ABOUT */
+
+    .about {
+      padding: 70px 0;
+      background: white;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .about-image {
+      height: 350px;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .about-image img {
+      height: 100%;
+    }
+
+    .about h2 {
+      font-size: 30px;
+      line-height: 1.3;
+      margin-bottom: 15px;
+    }
+
+    .about p {
+      color: var(--muted);
+      margin-bottom: 15px;
+    }
+
+    .about-list {
+      list-style: none;
+      margin: 20px 0;
+    }
+
+    .about-list li {
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .about-list li::before {
+      content: "✓";
+      color: var(--gold);
+      font-weight: 800;
+      margin-right: 10px;
+    }
+
+    /* TESTIMONIALS */
+
+    .testimonials {
+      padding: 65px 0;
+      background: #f0ece3;
+    }
+
+    .testimonial-box {
+      background: white;
+      padding: 27px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      max-width: 720px;
+      margin: auto;
       text-align: center;
     }
 
-    footer p { color: #d1dce3; font-size: 14px; margin-top: 7px; }
-
-    @media (max-width: 900px) {
-      .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .advantage-grid { grid-template-columns: repeat(2, 1fr); }
-      header { justify-content: center; text-align: center; }
-      nav { justify-content: center; }
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: 22px;
+      margin-bottom: 10px;
     }
 
-    @media (max-width: 520px) {
-      header { padding: 14px 4%; gap: 14px; }
-      .brand h1 { font-size: 22px; }
-      nav { gap: 12px; font-size: 13px; }
-      .hero { padding: 45px 6%; min-height: 470px; }
-      .hero p { font-size: 15px; }
-      .features { gap: 12px; }
-      section { padding: 38px 5%; }
-      .section-title h2 { font-size: 26px; }
-      .cards { gap: 12px; }
-      .card img { height: 110px; }
-      .card-content { padding: 11px; }
-      .card h3 { font-size: 15px; }
-      .card p { font-size: 13px; }
-      .offer h2 { font-size: 25px; }
-      .contact-wrap { padding: 20px 15px; }
+    .testimonial-box p {
+      color: #59646c;
+      font-size: 15px;
+    }
+
+    .testimonial-note {
+      margin-top: 13px;
+      font-size: 12px !important;
+      color: #899098 !important;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      padding: 65px 0;
+      background: white;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .contact-info h2 {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .contact-info p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .contact-item {
+      margin: 15px 0;
+      font-size: 14px;
+    }
+
+    .contact-form {
+      background: #faf8f3;
+      padding: 25px;
+      border-radius: 14px;
+      border: 1px solid #ece5d9;
+    }
+
+    .contact-form h3 {
+      font-size: 21px;
+      margin-bottom: 18px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      border: 1px solid #dcd8d0;
+      background: white;
+      border-radius: 8px;
+      padding: 12px;
+      color: var(--navy);
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .form-help {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #142b3b;
+      color: white;
+      padding: 30px 0 18px;
+    }
+
+    .footer-main {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding-bottom: 20px;
+    }
+
+    .footer-brand {
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .footer-brand span {
+      color: var(--gold-light);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #e0e5e9;
+      font-size: 12px;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,.15);
+      padding-top: 15px;
+      text-align: center;
+      font-size: 11px;
+      color: #c2cbd1;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 1100px) {
+      .navbar {
+        gap: 14px;
+      }
+
+      .brand-icon {
+        width: 55px;
+        height: 55px;
+      }
+
+      .brand-name {
+        font-size: 21px;
+      }
+
+      .brand-subtitle {
+        font-size: 17px;
+      }
+
+      .nav-links {
+        gap: 13px;
+      }
+
+      .nav-links a,
+      .phone {
+        font-size: 11px;
+      }
+
+      .header-contact {
+        gap: 10px;
+      }
+
+      .header-contact .btn {
+        padding: 11px 14px;
+        font-size: 12px;
+      }
+
+      .solutions-grid {
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: 92%;
+      }
+
+      .navbar {
+        min-height: 76px;
+        flex-wrap: wrap;
+        padding: 8px 0;
+      }
+
+      .brand {
+        gap: 8px;
+      }
+
+      .brand-icon {
+        width: 47px;
+        height: 47px;
+      }
+
+      .brand-name {
+        font-size: 19px;
+        letter-spacing: -.5px;
+      }
+
+      .brand-subtitle {
+        font-size: 15px;
+      }
+
+      .menu-toggle {
+        display: block;
+        margin-left: auto;
+      }
+
+      .header-contact {
+        display: none;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        width: 100%;
+        padding: 8px 0 12px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        font-size: 14px;
+        padding: 12px 8px;
+        border-bottom: 1px solid #e8e2d7;
+      }
+
+      .nav-links a.active {
+        padding-bottom: 12px;
+        border-bottom: 1px solid #e8e2d7;
+      }
+
+      .hero {
+        min-height: 540px;
+        align-items: flex-start;
+        background-position: 61% center;
+        background-image:
+          linear-gradient(90deg,
+            rgba(13, 34, 49, .85),
+            rgba(13, 34, 49, .53)),
+          url("https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80");
+      }
+
+      .hero-content {
+        padding-top: 45px;
+        padding-bottom: 105px;
+      }
+
+      .eyebrow {
+        font-size: 11px;
+        letter-spacing: .9px;
+      }
+
+      .hero h1 {
+        font-size: clamp(31px, 8vw, 43px);
+        letter-spacing: -.8px;
+      }
+
+      .hero-description {
+        font-size: 14px;
+        max-width: 420px;
+      }
+
+      .hero-features {
+        gap: 10px;
+      }
+
+      .hero-feature {
+        font-size: 10px;
+        padding-right: 9px;
+        gap: 5px;
+      }
+
+      .feature-icon {
+        font-size: 21px;
+      }
+
+      .hero-badge {
+        left: 4%;
+        right: auto;
+        bottom: 16px;
+        padding: 10px 16px;
+        font-size: 11px;
+        max-width: 255px;
+      }
+
+      .hero-badge-icon {
+        font-size: 28px;
+      }
+
+      .solutions {
+        padding: 28px 0;
+      }
+
+      .section-heading {
+        margin-bottom: 20px;
+      }
+
+      .section-heading h2 {
+        font-size: 24px;
+      }
+
+      .section-heading p {
+        font-size: 12px;
+      }
+
+      .solutions-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .solution-image {
+        height: 115px;
+      }
+
+      .solution-body {
+        padding: 19px 11px 13px;
+      }
+
+      .solution-body h3 {
+        font-size: 13px;
+      }
+
+      .solution-body p,
+      .learn-more {
+        font-size: 11px;
+      }
+
+      .financing {
+        padding: 30px 0;
+      }
+
+      .financing-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .financing-title strong {
+        font-size: 36px;
+      }
+
+      .financing-price {
+        max-width: 320px;
+        width: 100%;
+        margin: auto;
+      }
+
+      .financing-action h3 {
+        font-size: 17px;
+      }
+
+      .advantages {
+        padding: 25px 0;
+      }
+
+      .advantages-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .advantage {
+        border: 0;
+        padding: 12px 7px;
+      }
+
+      .about {
+        padding: 40px 0;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .about-image {
+        height: 240px;
+      }
+
+      .about h2,
+      .contact-info h2 {
+        font-size: 25px;
+      }
+
+      .testimonials,
+      .contact {
+        padding: 40px 0;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .contact-form {
+        padding: 18px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .footer-main {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .brand-name {
+        font-size: 17px;
+      }
+
+      .brand-subtitle {
+        font-size: 14px;
+      }
+
+      .brand-icon {
+        width: 40px;
+        height: 43px;
+      }
+
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      .hero-feature {
+        font-size: 9px;
+      }
+
+      .solutions-grid {
+        gap: 10px;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<header>
-  <a class="brand" href="#accueil">
-    <div class="brand-icon">☀️</div>
-    <div>
-      <h1>Modern Solar</h1>
-      <span>Énergie</span>
-    </div>
-  </a>
+  <!-- HEADER -->
+  <header>
+    <div class="container navbar">
 
-  <nav>
-    <a href="#accueil">Accueil</a>
-    <a href="#apropos">À propos</a>
-    <a href="#solutions">Nos solutions</a>
-    <a href="#avantages">Nos avantages</a>
-    <a href="#contact">Contact</a>
-  </nav>
+      <a href="#accueil" class="brand" aria-label="Modern Solar Énergie - Accueil">
+        <svg class="brand-icon" viewBox="0 0 100 85" aria-hidden="true">
+          <g stroke="#e2a72e" stroke-width="3.5" stroke-linecap="round">
+            <path d="M20 4V12 M5 12L11 18 M35 12L29 18 M2 27H10 M30 27H38 M10 4L15 11 M30 4L25 11"/>
+          </g>
+          <circle cx="20" cy="25" r="14" fill="#f3c23c"/>
+          <path d="M8 46L35 25L56 46L46 46L35 36L23 46Z" fill="#283c4c"/>
+          <path d="M34 45L53 21L83 21L99 45H87L78 30H59L48 45Z" fill="#354755"/>
+          <path d="M36 48L55 27H75L88 48Z" fill="#dce4e8"/>
+          <path d="M40 45L57 29H72L83 45Z" fill="#263b4a"/>
+          <path d="M45 45L59 30M58 45L69 30M72 45L78 36M48 38H79" stroke="#91a9b7" stroke-width="1.5"/>
+          <path d="M12 50H43L33 65H3Z" fill="#344958"/>
+          <path d="M16 53H26L21 62H11Z" fill="#92b4c2"/>
+          <path d="M29 53H38L33 62H24Z" fill="#92b4c2"/>
+          <path d="M48 47H64V66H48Z" fill="#344958"/>
+          <path d="M53 51H59V57H53Z" fill="#e6edf0"/>
+          <path d="M48 63L56 56L64 63" fill="#344958"/>
+        </svg>
 
-  <a class="phone" href="tel:+21626621515">☎ +216 26 621 515</a>
-  <a class="btn" href="#contact">Demander un devis</a>
-</header>
-
-<main>
-  <section class="hero" id="accueil">
-    <div class="hero-content">
-      <div class="eyebrow">L’ÉNERGIE SOLAIRE, UN CHOIX INTELLIGENT</div>
-      <h2>Des solutions solaires <span>pour un avenir plus propre</span></h2>
-      <p>Modern Solar Énergie vous accompagne dans votre transition énergétique avec des solutions fiables, performantes et adaptées à vos besoins.</p>
-
-      <div class="features">
-        <span>♻️ Énergie propre<br>et renouvelable</span>
-        <span>ϟ Réduction de<br>votre facture d’électricité</span>
-        <span>⌂ Installation rapide<br>et professionnelle</span>
-      </div>
-
-      <a class="btn" href="#solutions">Découvrir nos solutions →</a>
-    </div>
-  </section>
-
-  <section id="solutions">
-    <div class="section-title">
-      <h2>Nos solutions solaires</h2>
-      <p>Des installations sur mesure pour les particuliers, les entreprises et les commerces.</p>
-    </div>
-
-    <div class="cards">
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=700&q=80" alt="Panneaux solaires sur une maison" loading="lazy">
-        <div class="card-content">
-          <h3>Résidentiel</h3>
-          <p>Produisez votre propre électricité et réduisez vos factures.</p>
-          <a class="more" href="#contact">En savoir plus →</a>
+        <div>
+          <div class="brand-name">Modern Solar</div>
+          <div class="brand-subtitle">Énergie</div>
         </div>
-      </article>
+      </a>
 
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=700&q=80" alt="Installation solaire commerciale" loading="lazy">
-        <div class="card-content">
-          <h3>Commercial & Industriel</h3>
-          <p>Optimisez votre consommation et améliorez votre rentabilité.</p>
-          <a class="more" href="#contact">En savoir plus →</a>
+      <button class="menu-toggle" id="menuToggle"
+        aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#accueil" class="active">Accueil</a>
+        <a href="#apropos">À propos</a>
+        <a href="#solutions">Nos solutions</a>
+        <a href="#avantages">Nos avantages</a>
+        <a href="#temoignages">Témoignages</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-contact">
+        <a class="phone" href="tel:+21626621515">☎ &nbsp;+216 26 621 515</a>
+        <a class="btn btn-gold" href="#contact">Demander un devis</a>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="accueil">
+      <div class="container">
+        <div class="hero-content">
+
+          <div class="eyebrow">L’énergie solaire, un choix intelligent</div>
+
+          <h1>
+            Des solutions solaires
+            <span>pour un avenir plus propre</span>
+          </h1>
+
+          <p class="hero-description">
+            Modern Solar Énergie vous accompagne dans votre
+            transition énergétique avec des solutions fiables,
+            performantes et adaptées à vos besoins.
+          </p>
+
+          <div class="hero-features">
+            <div class="hero-feature">
+              <span class="feature-icon">♧</span>
+              <span>Énergie propre<br>et renouvelable</span>
+            </div>
+
+            <div class="hero-feature">
+              <span class="feature-icon">ϟ</span>
+              <span>Réduction de<br>votre facture d’électricité</span>
+            </div>
+
+            <div class="hero-feature">
+              <span class="feature-icon">⌂</span>
+              <span>Installation rapide<br>et professionnelle</span>
+            </div>
+          </div>
+
+          <a href="#solutions" class="btn btn-gold">
+            Découvrir nos solutions &nbsp; →
+          </a>
         </div>
-      </article>
+      </div>
 
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=700&q=80" alt="Énergie solaire en pleine nature" loading="lazy">
-        <div class="card-content">
-          <h3>Systèmes autonomes</h3>
-          <p>Une solution idéale pour les zones non raccordées au réseau.</p>
-          <a class="more" href="#contact">En savoir plus →</a>
+      <div class="hero-badge">
+        <span class="hero-badge-icon">♧</span>
+        <span>
+          Investissez aujourd’hui<br>
+          pour un meilleur demain
+        </span>
+      </div>
+    </section>
+
+    <!-- SOLUTIONS -->
+    <section class="solutions" id="solutions">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>Nos solutions solaires</h2>
+          <p>
+            Des installations sur mesure pour les particuliers,
+            les entreprises et les commerces.
+          </p>
         </div>
-      </article>
 
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1592833159155-c62df1b65634?auto=format&fit=crop&w=700&q=80" alt="Équipement énergétique" loading="lazy">
-        <div class="card-content">
-          <h3>Stockage d’énergie</h3>
-          <p>Profitez de l’énergie solaire en toute autonomie, même la nuit.</p>
-          <a class="more" href="#contact">En savoir plus →</a>
+        <div class="solutions-grid">
+
+          <article class="solution-card">
+            <div class="solution-image">
+              <img
+                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=700&q=80"
+                alt="Maison individuelle et énergie solaire"
+                loading="lazy">
+              <span class="solution-icon">⌂</span>
+            </div>
+            <div class="solution-body">
+              <h3>Résidentiel</h3>
+              <p>Produisez votre propre électricité et réduisez vos factures.</p>
+              <a href="#contact" class="learn-more">En savoir plus →</a>
+            </div>
+          </article>
+
+          <article class="solution-card">
+            <div class="solution-image">
+              <img
+                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=700&q=80"
+                alt="Bâtiment professionnel"
+                loading="lazy">
+              <span class="solution-icon">▦</span>
+            </div>
+            <div class="solution-body">
+              <h3>Commercial &amp; Industriel</h3>
+              <p>Optimisez votre consommation et améliorez votre rentabilité.</p>
+              <a href="#contact" class="learn-more">En savoir plus →</a>
+            </div>
+          </article>
+
+          <article class="solution-card">
+            <div class="solution-image">
+              <img
+                src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=700&q=80"
+                alt="Panneaux solaires en plein air"
+                loading="lazy">
+              <span class="solution-icon">☀</span>
+            </div>
+            <div class="solution-body">
+              <h3>Systèmes autonomes</h3>
+              <p>Une solution idéale pour les zones non raccordées au réseau.</p>
+              <a href="#contact" class="learn-more">En savoir plus →</a>
+            </div>
+          </article>
+
+          <article class="solution-card">
+            <div class="solution-image">
+              <img
+                src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=700&q=80"
+                alt="Équipements électriques et énergie"
+                loading="lazy">
+              <span class="solution-icon">▣</span>
+            </div>
+            <div class="solution-body">
+              <h3>Stockage d’énergie</h3>
+              <p>Profitez de l’énergie solaire en toute autonomie, même la nuit.</p>
+              <a href="#contact" class="learn-more">En savoir plus →</a>
+            </div>
+          </article>
+
         </div>
-      </article>
-    </div>
-  </section>
-
-  <section class="advantages" id="apropos">
-    <div class="section-title">
-      <h2>Pourquoi choisir Modern Solar Énergie ?</h2>
-      <p>Des solutions pensées pour votre confort et vos économies.</p>
-    </div>
-
-    <div class="advantage-grid" id="avantages">
-      <div class="advantage">
-        <div class="icon">☀️</div>
-        <h3>Énergie propre</h3>
-        <p>Une énergie renouvelable pour un avenir plus durable.</p>
       </div>
-      <div class="advantage">
-        <div class="icon">🛡️</div>
-        <h3>Matériel de qualité</h3>
-        <p>Des équipements adaptés à votre installation.</p>
+    </section>
+
+    <!-- FINANCING -->
+    <section class="financing" id="financement">
+      <div class="container financing-grid">
+
+        <div class="financing-title">
+          <strong>0 DT d’avance</strong>
+          <span>et un paiement sur 7 ans !</span>
+        </div>
+
+        <div class="financing-price">
+          <span class="calendar-icon">▦</span>
+          <div>
+            <div class="price-label">Seulement</div>
+            <div class="price-amount">154 DT / mois</div>
+          </div>
+        </div>
+
+        <div class="financing-action">
+          <h3>Profitez de l’énergie solaire<br>sans vous soucier du coût !</h3>
+          <a href="#contact" class="btn btn-dark">
+            Faire une demande →
+          </a>
+        </div>
+
       </div>
-      <div class="advantage">
-        <div class="icon">🎧</div>
-        <h3>Service après-vente</h3>
-        <p>Un accompagnement à chaque étape de votre projet.</p>
+    </section>
+
+    <!-- ADVANTAGES -->
+    <section class="advantages" id="avantages">
+      <div class="container advantages-grid">
+
+        <div class="advantage">
+          <div class="advantage-icon">♧</div>
+          <h3>Énergie propre</h3>
+          <p>Une énergie renouvelable pour un avenir plus durable.</p>
+        </div>
+
+        <div class="advantage">
+          <div class="advantage-icon">♢</div>
+          <h3>Matériel de qualité</h3>
+          <p>Des équipements adaptés à votre installation.</p>
+        </div>
+
+        <div class="advantage">
+          <div class="advantage-icon">♧</div>
+          <h3>Service après-vente</h3>
+          <p>Un accompagnement à chaque étape de votre projet.</p>
+        </div>
+
+        <div class="advantage">
+          <div class="advantage-icon">⌖</div>
+          <h3>Présent partout en Tunisie</h3>
+          <p>Contactez-nous pour étudier votre projet.</p>
+        </div>
+
       </div>
-      <div class="advantage">
-        <div class="icon">📍</div>
-        <h3>Partout en Tunisie</h3>
-        <p>Contactez-nous pour étudier votre projet.</p>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="apropos">
+      <div class="container about-grid">
+
+        <div class="about-image">
+          <img
+            src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=85"
+            alt="Espace professionnel moderne"
+            loading="lazy">
+        </div>
+
+        <div>
+          <div class="eyebrow" style="color:#a78054">
+            Votre partenaire énergétique
+          </div>
+
+          <h2>À propos de Modern Solar Énergie</h2>
+
+          <p>
+            Nous vous accompagnons dans votre transition énergétique
+            avec des solutions solaires pensées pour votre habitation,
+            votre entreprise ou votre commerce.
+          </p>
+
+          <p>
+            Notre objectif est de vous aider à mieux exploiter
+            l’énergie solaire grâce à une solution adaptée à vos besoins.
+          </p>
+
+          <ul class="about-list">
+            <li>Solutions adaptées à votre projet</li>
+            <li>Étude personnalisée de vos besoins</li>
+            <li>Accompagnement et conseils</li>
+            <li>Demande de devis personnalisée</li>
+          </ul>
+
+          <a href="#contact" class="btn btn-gold">Parlons de votre projet →</a>
+        </div>
+
       </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="temoignages">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>Votre projet, notre priorité</h2>
+          <p>Un accompagnement adapté à vos besoins énergétiques.</p>
+        </div>
+
+        <div class="testimonial-box">
+          <div class="testimonial-stars">☀ ☀ ☀</div>
+          <p>
+            Vous souhaitez passer à l’énergie solaire ?
+            Contactez notre équipe pour discuter de votre projet
+            et découvrir les solutions adaptées à votre situation.
+          </p>
+          <p class="testimonial-note">
+            Contactez-nous pour obtenir des informations et un devis personnalisé.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+
+        <div class="contact-info">
+          <div class="eyebrow" style="color:#a78054">Parlons de votre projet</div>
+          <h2>Demandez votre devis personnalisé</h2>
+
+          <p>
+            Remplissez le formulaire pour nous présenter votre projet.
+            Votre demande sera préparée dans WhatsApp afin que vous
+            puissiez nous l’envoyer directement.
+          </p>
+
+          <div class="contact-item">
+            <strong>☎ Téléphone</strong><br>
+            <a href="tel:+21626621515">+216 26 621 515</a>
+          </div>
+
+          <div class="contact-item">
+            <strong>☀ Nos solutions</strong><br>
+            Résidentiel, entreprises, systèmes autonomes et stockage.
+          </div>
+
+          <a class="btn btn-gold" href="https://wa.me/21626621515"
+             target="_blank" rel="noopener">
+            Nous contacter sur WhatsApp
+          </a>
+        </div>
+
+        <form class="contact-form" id="devisForm">
+          <h3>Votre demande de devis</h3>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nom">Nom et prénom *</label>
+              <input id="nom" name="nom" type="text"
+                     placeholder="Votre nom" required>
+            </div>
+
+            <div class="form-group">
+              <label for="telephone">Téléphone *</label>
+              <input id="telephone" name="telephone" type="tel"
+                     placeholder="Votre numéro" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="typeProjet">Type de projet *</label>
+            <select id="typeProjet" name="typeProjet" required>
+              <option value="">Choisir une solution</option>
+              <option>Installation résidentielle</option>
+              <option>Projet commercial ou industriel</option>
+              <option>Système solaire autonome</option>
+              <option>Stockage d’énergie</option>
+              <option>Autre projet</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="ville">Ville</label>
+            <input id="ville" name="ville" type="text"
+                   placeholder="Votre ville en Tunisie">
+          </div>
+
+          <div class="form-group">
+            <label for="message">Décrivez votre projet</label>
+            <textarea id="message" name="message"
+                      placeholder="Parlez-nous de vos besoins..."></textarea>
+          </div>
+
+          <button class="btn btn-gold" type="submit">
+            Préparer ma demande →
+          </button>
+
+          <p class="form-help">
+            Après validation, WhatsApp s’ouvrira avec les informations
+            saisies. Vous devrez appuyer sur Envoyer dans WhatsApp
+            pour transmettre votre demande.
+          </p>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+
+      <div class="footer-main">
+        <a href="#accueil" class="footer-brand">
+          Modern Solar <span>Énergie</span>
+        </a>
+
+        <nav class="footer-links" aria-label="Liens de pied de page">
+          <a href="#accueil">Accueil</a>
+          <a href="#apropos">À propos</a>
+          <a href="#solutions">Nos solutions</a>
+          <a href="#contact">Contact</a>
+          <a href="tel:+21626621515">Téléphone</a>
+        </nav>
+      </div>
+
+      <div class="copyright">
+        © <span id="year"></span> Modern Solar Énergie.
+        Tous droits réservés.
+      </div>
+
     </div>
-  </section>
+  </footer>
 
-  <section class="offer">
-    <div>
-      <h2>Le solaire, à votre portée !</h2>
-      <p>Découvrez la solution adaptée à votre budget.</p>
-    </div>
-    <div>
-      <div class="price">Devis personnalisé</div>
-      <p>Selon votre installation et vos besoins.</p>
-    </div>
-    <a class="btn" href="#contact">Faire une demande →</a>
-  </section>
+  <script>
+    // Menu mobile
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
 
-  <section id="contact">
-    <div class="section-title">
-      <h2>Demandez votre devis gratuit</h2>
-      <p>Parlez-nous de votre projet solaire en Tunisie.</p>
-    </div>
+    menuToggle.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("open");
 
-    <div class="contact-wrap">
-      <p>Remplissez le formulaire et nous pourrons étudier votre demande.</p>
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Fermer le menu" : "Ouvrir le menu"
+      );
 
-      <form action="https://formspree.io/f/mbgdkabo" method="POST">
-        <input type="hidden" name="_subject" value="Nouvelle demande de devis - Modern Solar Énergie">
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
 
-        <input type="text" name="nom" placeholder="Nom et prénom" autocomplete="name" required>
+    // Fermer le menu après avoir choisi une rubrique
+    navLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuToggle.textContent = "☰";
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
 
-        <input type="tel" name="telephone" placeholder="Numéro de téléphone" autocomplete="tel" required>
+    // Année automatique
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
 
-        <input type="text" name="ville" placeholder="Ville / Région" autocomplete="address-level2" required>
+    // Préparer une demande de devis dans WhatsApp
+    document.getElementById("devisForm").addEventListener("submit", function (event) {
+      event.preventDefault();
 
-        <select name="type_projet" required>
-          <option value="">Type de projet</option>
-          <option>Installation solaire résidentielle</option>
-          <option>Installation commerciale ou industrielle</option>
-          <option>Système solaire autonome</option>
-          <option>Stockage d’énergie</option>
-          <option>Autre demande</option>
-        </select>
+      const nom = document.getElementById("nom").value.trim();
+      const telephone = document.getElementById("telephone").value.trim();
+      const typeProjet = document.getElementById("typeProjet").value;
+      const ville = document.getElementById("ville").value.trim();
+      const message = document.getElementById("message").value.trim();
 
-        <textarea name="message" placeholder="Décrivez votre projet (facultatif)"></textarea>
+      const texte =
+        "Bonjour Modern Solar Énergie,\n\n" +
+        "Je souhaite demander un devis.\n\n" +
+        "Nom et prénom : " + nom + "\n" +
+        "Téléphone : " + telephone + "\n" +
+        "Type de projet : " + typeProjet + "\n" +
+        "Ville : " + (ville || "Non précisée") + "\n" +
+        "Description : " + (message || "Non précisée");
 
-        <button class="btn" type="submit">Envoyer ma demande →</button>
-        <p class="form-note">Vos informations servent à répondre à votre demande de devis.</p>
-      </form>
+      const whatsappURL =
+        "https://wa.me/21626621515?text=" + encodeURIComponent(texte);
 
-      <p style="margin-top:22px">
-        Téléphone :
-        <a href="tel:+21626621515"><strong>+216 26 621 515</strong></a>
-      </p>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <h2>Modern Solar Énergie</h2>
-  <p>Des solutions solaires pour un avenir plus propre.</p>
-  <p>© 2026 Modern Solar Énergie — Tunisie</p>
-</footer>
+      window.open(whatsappURL, "_blank");
+    });
+  </script>
 
 </body>
 </html>
